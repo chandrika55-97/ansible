@@ -1,0 +1,5 @@
+- name: ping the server
+  hosts: 172.31.32.79  # which host or ip connect that one need to give here
+  tasks:   # list of tasks or modules
+  - name: ping the server
+    ansible.builtin.ping:
