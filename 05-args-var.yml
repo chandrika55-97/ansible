@@ -1,14 +1,14 @@
-# - name: declared varibles from args
-#   hosts: server
-#   become: yes
-#   tasks:
-#   - name: print the variables
-#     ansible.builtin.debug:
-#      msg: "hi i am learning {{course}} and trainer is {{trainer}}"
-
-- name: variables to print
+- name: declared varibles from args
   hosts: server
+  become: yes
   tasks:
-  - name: print the information
+  - name: print the variables
     ansible.builtin.debug:
-      msg: "Hello {{NAME}}, Good {{GREETING}}"     
+     msg: "hi i am learning {{course}} and trainer is {{trainer}}"
+
+# - name: variables to print
+#   hosts: server
+#   tasks:
+#   - name: print the information
+#     ansible.builtin.debug:
+#       msg: "Hello {{NAME}}, Good {{GREETING}}"     
