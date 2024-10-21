@@ -1,0 +1,9 @@
+- name: installing nginx package
+  hosts: server
+  become: yes
+  tasks:
+    - name: nginx installing
+      state: present
+    - name: run and enable nginx
+      state: start
+      enable: yes
