@@ -3,7 +3,10 @@
   become: yes
   tasks:
     - name: nginx installing
+      name: nginx
       state: present
+      
     - name: run and enable nginx
+      name: nginx
       state: start
       enable: yes
