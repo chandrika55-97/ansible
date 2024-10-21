@@ -10,7 +10,7 @@
   tasks:
   - name: print the vaiables
     ansible.builtin.debug:
-     msg: "hi i am learing the course {{ course }}, duration is {{ duration }}, and the trainer is {{ trainer }}"
+     msg: "hi i am learing the course {{course}}, duration is {{duration}}, and the trainer is {{trainer}}"
 
   - name: task level variables  # task level variable declaration
     vars:
@@ -18,7 +18,7 @@
      duration: 10hours
      triner: sivvu
     ansible.builtin.debug:
-     msg: "hi i am learing {{ course}}, with the duration {{ duration }} and trainer is {{trainer}}"
+     msg: "hi i am learing {{course}}, with the duration {{duration}} and trainer is {{trainer}}"
 
   
 
