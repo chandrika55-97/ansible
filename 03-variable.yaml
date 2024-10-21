@@ -1,11 +1,16 @@
 - name: vaiables in list
   hosts: server
   become: yes
+  vars:                     # play level variable declaration
+   course: devops
+   duration: 120 hours
+   trainer: sivvu
   tasks:
   - name: print the vaiables
     ansible.builtin.debug:
-     msg: "hi i am learing the course"
-  - name: task level variables
+     msg: "hi i am learing the course {{ course }}, duration is {{ duration }}, and the trainer is {{ trainer }}"
+
+  - name: task level variables  # task level variable declaration
     vars:
      course: aws
      duration: 10hours
@@ -16,17 +21,4 @@
 
 
    
-# vars: #play level, all tasks in this play have access to this
-#     COURSE: "DevOps with AWS"
-#     DURATION: "120HRS"
-#     TRAINER: "Sivakumar Reddy M"
-#   tasks:
-#   - name: print the information
-#     ansible.builtin.debug:
-#       msg: "Hi, I am learning {{COURSE}}, Duration is: {{DURATION}}, Trainer: {{TRAINER}}"
 
-#   - name: print the information again
-#     vars: #task level variables override play level
-#       COURSE: "Ansible"
-#     ansible.builtin.debug:
-#       msg: "Hi, I am learning {{COURSE}}, Duration is: {{DURATION}}, Trainer: {{TRAINER}}"
