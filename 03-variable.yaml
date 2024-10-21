@@ -1,0 +1,7 @@
+- name: vaiables in list
+  hosts: server
+  become: yes
+  tasks:
+  - name: print the vaiables
+    ansible.builtin.debug:
+     msg: "hi i am learing the course"
