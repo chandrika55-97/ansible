@@ -7,7 +7,7 @@
 #      msg: "hi i am learning {{course}} and trainer is {{trainer}}"
 
 - name: variables to print
-  hosts: web
+  hosts: server
   tasks:
   - name: print the information
     ansible.builtin.debug:
