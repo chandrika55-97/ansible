@@ -6,9 +6,9 @@
     ansible.builtin.debug:
      msg: "hi i am learning {{course}} and trainer is {{trainer}}"
 
-# - name: variables to print
-#   hosts: server
-#   tasks:
-#   - name: print the information
-#     ansible.builtin.debug:
-#       msg: "Hello {{NAME}}, Good {{GREETING}}"     
+# using "-e" we can give args
+
+# like----->  -e "course=aws trainer=sivvu"
+
+#ansible-playbook -i inventory.yml -e ansible_user=ec2-user -e ansible_password=DevOps321 05-args-var.yml -e "course=aws trainer=sivvu"
+    
