@@ -7,7 +7,7 @@
      msg: "hi i am learing the course"
   - name: task level variables
     vars:
-    course= aws
-    duration= 10hours
+    course: aws
+    duration: 10hours
     ansible.builtin.debug:
      msg: "hi i am learing {{ course}}, with the duration {{ duration }}"
