@@ -19,20 +19,7 @@
     ansible.builtin.debug:
      msg: "hi i am learing {{ course}}, with the duration {{ duration }}"
 
-    vars_prompt:
-  - name: COURSE
-    prompt: Please enter the course name
-    private: false # not confidential
-  - name: TRAINER
-    prompt: Please enter the trainer name
-    private: false # not confidential
-  - name: DURATION
-    prompt: Please enter the duration
-    private: false # not confidential
-  tasks:
-  - name: print the course information
-    ansible.builtin.debug:
-      msg: "Hi, I am learning {{ COURSE }}, Duration is: {{ DURATION }}, Trainer: {{ TRAINER }}"
+  
 
 
    
