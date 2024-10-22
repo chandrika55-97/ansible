@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   tasks:
-  - name: print the number is less than 10 or greater than 10
+  - name: print the number is less than 10 || greater than 10
     ansible.builtn.debug:
       msg: " given number {{number}}: is less than 10"
       when: number < 10
