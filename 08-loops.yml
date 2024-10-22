@@ -3,7 +3,7 @@
   become: yes
   #connection: local
   tasks:
-  - name: installing packages
+  - name: installing packages      # here installing packages
     ansible.builtin.package:
       #msg: "installing package"
       name: "{{item}}"
@@ -13,11 +13,11 @@
     - mysql
     - postfix  
 
-  - name: removing packages
+  - name: removing packages        # hereswe can remove or install process how it works like
     ansible.builtin.package:
       name: "{{item.name}}"
       state: "{{item.state}}"
     loop:
     - { name: 'nginx', state: 'absent' } 
-    - { name: 'mysql', state: 'absent' } 
-    - { name: 'postfix', state: 'absent' } 
+    - { name: 'mysql', state: 'present' } 
+    - { name: 'postfix', state: 'present' } 
