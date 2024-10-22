@@ -1,0 +1,21 @@
+- name: data types in ansible
+  hosts: local
+  connection: local
+  vars:
+    course: aws
+    duration: 100 hours
+    topics:
+      topic:
+
+      - linux
+      - shell
+      - ansible
+      - terraform
+      topic:
+      - devops
+      - security group
+    level: true
+  tasks:
+  - name: print the data types
+    ansible.builtin.debug:
+      msg: "hi i am learing course {{course}} and topics {{topic}} and level {{level}} with the duration {{duration}}"
