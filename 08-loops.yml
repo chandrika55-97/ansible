@@ -4,7 +4,7 @@
   #connection: local
   tasks:
   - name: print names
-    ansible.builtin.packages:
+    ansible.builtin.package:
       #msg: "installing package"
       name: "{{item}}"
       state: present
