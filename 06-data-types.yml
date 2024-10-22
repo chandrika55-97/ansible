@@ -11,9 +11,9 @@
       - shell
       - ansible
       - terraform
-      topic:
-      - devops
-      - security group
+      # topic:
+      # - devops
+      # - security group
     level: true
   tasks:
   - name: print the data types
