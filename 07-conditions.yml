@@ -10,9 +10,11 @@
   - name: print the number is less than 10 
     ansible.builtin.debug:
       msg: "given number {{number}} is less than 10"
-    when: number < 10
+    #when: number < 10                         ---- this in play or task level used
+    when: number | int < 10                # this for prompt level so need to use pipe because it is convet to int, before that takes as a string
 
   - name: print the number is greater than 10    
     ansible.builtin.debug:
       msg: "given number {{number}} is greater than 10"  
-    when: number >= 10
+    #when: number >= 10
+    when: number | int >= 10
