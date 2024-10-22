@@ -1,6 +1,6 @@
 - name: ping the server
-  hosts: local
-  connection: local # which host or ip connect that one need to give here
+  hosts: server
+  #connection: local # which host or ip connect that one need to give here
   tasks:   # list of tasks or modules
   - name: pinging the server
     ansible.builtin.ping:
