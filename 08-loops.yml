@@ -3,7 +3,7 @@
   become: yes
   #connection: local
   tasks:
-  - name: installing packages
+  - name: installing 
     ansible.builtin.packages:
       #msg: "installing packages"
       name: "{{item}}"
