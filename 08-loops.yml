@@ -3,9 +3,9 @@
   become: yes
   #connection: local
   tasks:
-  - name: installing 
+  - name: print names
     ansible.builtin.packages:
-      #msg: "installing packages"
+      #msg: "installing package"
       name: "{{item}}"
       state: present
     loop:
