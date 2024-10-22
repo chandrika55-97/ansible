@@ -5,11 +5,11 @@
     course: aws
     duration: 100 hours
     topics:
-      - linux:
-        copy:
-        move:
-        create:
-        remove:
+      - linux: linux commands   #with in list again mapping
+        copy: cp
+        move: mv
+        create: touch and mkdir
+        remove: rm
       - shell
       - ansible
       - terraform
