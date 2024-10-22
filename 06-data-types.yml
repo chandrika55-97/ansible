@@ -6,10 +6,10 @@
     duration: 100 hours
     topics:
       - linux:
-        copy
-        move
-        create
-        remove
+        copy:
+        move:
+        create:
+        remove:
       - shell
       - ansible
       - terraform
