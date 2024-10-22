@@ -5,13 +5,17 @@
     course: aws
     duration: 100 hours
     topics:
-      - linux
+      - linux:
+        copy
+        move
+        create
+        remove
       - shell
       - ansible
       - terraform
       # topic:
       # - devops
-      # - security group
+      # - security group # here we can not give in list inside list
     level: true
   tasks:
   - name: print the data types
