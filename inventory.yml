@@ -1,6 +1,8 @@
 [server]
 172.31.23.156
 
-[server:vars]
+
+
+[all:vars]
 ansible_user=ec2-user
 ansible_password=DevOps321
