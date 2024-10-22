@@ -4,6 +4,7 @@
   vars_prompt:
   - name: number
     prompt: please enter the number
+    private: true
   # vars:
   #  number: 140
   tasks:
