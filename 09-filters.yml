@@ -1,0 +1,7 @@
+- name: filerters using in ansible
+  hosts: local
+  connection: local
+  tasks:
+  - name: print the filter value
+    ansible.builtin.debug:
+      msg: "hello {{course | default (good morning)}}"
