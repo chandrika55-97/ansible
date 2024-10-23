@@ -13,3 +13,29 @@
   - name : print the lower case
     ansible.builtin.debug:
       msg: "hello {{course | default ('good morning') | lower}}"
+
+  - name : print the unique set value
+    vras:
+     list1: [1, 2, 5, 1, 3, 4, 10]
+    ansible.builtin.debug:
+      msg: "{{list1 | unique}}"
+
+  - name: print the union of sets value
+    vars:
+      list1: [1, 2, 5, 1, 3, 4, 10]
+      list2: [1, 2, 3, 4, 5, 11, 99]
+    ansible.builtin.debug:
+     msg: "{{list1 | union(list2)}}"  
+
+  - name: print the intersects of sets value
+    vars:
+      list1: [1, 2, 5, 1, 3, 4, 10]
+      list2: [1, 2, 3, 4, 5, 11, 99]
+    ansible.builtin.debug:
+      msg: "{{ list1 | intersect(list2) }}"
+
+  - name : print the minimum and maximum value
+    vras:
+     list1: [1, 2, 5, 1, 3, 4, 10]
+    ansible.builtin.debug:
+      msg: "min: {{list1 | min}}, max: {{list1 | mix}}"
