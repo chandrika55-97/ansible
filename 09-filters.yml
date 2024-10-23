@@ -18,7 +18,7 @@
     vars:
      numbres1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
-      msg: "{{numbres1 | unique}}"
+      msg: "{{ numbres1 | unique }}"
 
   - name: print the union of sets value
     vars:
