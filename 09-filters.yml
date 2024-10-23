@@ -16,26 +16,26 @@
 
   - name : print the unique set value
     vars:
-     list1: [1, 2, 5, 1, 3, 4, 10]
+     numbres1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
-      msg: "{{list1 | unique}}"
+      msg: "{{numbres1 | unique}}"
 
   - name: print the union of sets value
     vars:
-      list1: [1, 2, 5, 1, 3, 4, 10]
-      list2: [1, 2, 3, 4, 5, 11, 99]
+      numbres1: [1, 2, 5, 1, 3, 4, 10]
+      numbres2: [1, 2, 3, 4, 5, 11, 99]
     ansible.builtin.debug:
-     msg: "{{list1 | union(list2)}}"  
+     msg: "{{numbres1 | union(numbres2)}}"  
 
   - name: print the intersects of sets value
     vars:
-      list1: [1, 2, 5, 1, 3, 4, 10]
-      list2: [1, 2, 3, 4, 5, 11, 99]
+      numbres1: [1, 2, 5, 1, 3, 4, 10]
+      numbres12: [1, 2, 3, 4, 5, 11, 99]
     ansible.builtin.debug:
-      msg: "{{ list1 | intersect(list2) }}"
+      msg: "{{ numbres1 | intersect(numbres2) }}"
 
   - name : print the minimum and maximum value
     vars:
-     list1: [1, 2, 5, 1, 3, 4, 10]
+     numbres1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
-      msg: "min: {{list1 | min}}, max: {{list1 | mix}}"
+      msg: "min: {{numbres1 | min}}, max: {{numbres1 | max}}"
