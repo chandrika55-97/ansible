@@ -15,7 +15,7 @@
       msg: "hello {{course | default ('good morning') | lower}}"
 
   - name : print the unique set value
-    vras:
+    vars:
      list1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
       msg: "{{list1 | unique}}"
