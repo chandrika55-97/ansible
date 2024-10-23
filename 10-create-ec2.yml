@@ -1,0 +1,30 @@
+- name: create ec2-instances
+  hosts: local
+  connection: local
+  vars:
+    subnet_id: "subnet-087e7e8ef0030cad8" # replace with your subnet id
+    sg_id: "sg-024300ecf9b718f8c"
+    ami_id: "ami-09c813fb71547fc4f"
+    instances:
+    - mysql
+    - backend
+    - frontend
+    zone: daws81s.online
+
+  tasks:
+   - name: ansible to install boto3 and botocore
+     ansible.builtin.pip:
+      name:
+      - boto3
+      - botocore
+      executable: pip3.9
+
+   - name: creating ec2 instances
+     amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: "t3.micro"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+     loop: "{{ instances }}"
+     register: ec2_instances
