@@ -1,0 +1,60 @@
+- name: create ec2 and r53 records
+  hosts: local
+  connection: local
+  # assignment
+  # move this to vars_files
+  vars:
+    subnet_id: "subnet-087e7e8ef0030cad8" # replace with your subnet id
+    sg_id: "sg-024300ecf9b718f8c"
+    ami_id: "ami-09c813fb71547fc4f"
+    instances:
+    - mysql
+    - backend
+    - frontend
+    zone: daws81s.online
+  tasks:
+  - name: ansible to install boto3 and botocore
+    ansible.builtin.pip:
+      name:
+      - boto3
+      - botocore
+      executable: pip3.9
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: "t3.micro"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+    loop: "{{ instances }}"
+    register: ec2_instances
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ ec2_instances }}"
+
+  #private IP R53
+  - name: create r53 private records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}" #mysql.daws81s.online
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+
+  # - name: create r53 public record for frontend
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ zone }}"
+  #     record: "{{ zone }}" #daws81s.online
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.instances[0].public_ip_address }}"
+  #     wait: true
+  #     overwrite: true
+  #   loop: "{{ ec2_instances.results }}"
+  #   when: item.item == "frontend" #when keyword should not have {{}}
