@@ -4,38 +4,44 @@
   tasks:
   - name: print the filter value
     ansible.builtin.debug:
-      msg: "hello {{course | default ('good morning')}}"
+      msg: "hello {{course | default ('good morning')}}"       #hello good morning
 
   - name : print the upper case
     ansible.builtin.debug:
-      msg: "hello {{course | default ('good morning') | upper}}"
+      msg: "hello {{course | default ('good morning') | upper}}"    #hello GOOD MORNING
 
   - name : print the lower case
     ansible.builtin.debug:
-      msg: "hello {{course | default ('good morning') | lower}}"
+      msg: "hello {{course | default ('good morning') | lower}}"    #hello good morning
 
   - name : print the unique set value
     vars:
      numbres1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
-      msg: "{{ numbres1 | unique }}"
+      msg: "{{ numbres1 | unique }}"                              # [1,2,5,3,4,10]
 
   - name: print the union of sets value
     vars:
       numbres1: [1, 2, 5, 1, 3, 4, 10]
       numbres2: [1, 2, 3, 4, 5, 11, 99]
     ansible.builtin.debug:
-     msg: "{{numbres1 | union(numbres2)}}"  
+     msg: "{{numbres1 | union(numbres2)}}"                      # [1,2,5,3,4,10,11,99]
 
   - name: print the intersects of sets value
     vars:
       numbres1: [1, 2, 5, 1, 3, 4, 10]
       numbres2: [1, 2, 3, 4, 5, 11, 99]
     ansible.builtin.debug:
-      msg: "{{ numbres1 | intersect(numbres2) }}"
+      msg: "{{ numbres1 | intersect(numbres2) }}"                  #[1,2,5,3,4]
 
   - name : print the minimum and maximum value
     vars:
      numbres1: [1, 2, 5, 1, 3, 4, 10]
     ansible.builtin.debug:
-      msg: "min: {{numbres1 | min}}, max: {{numbres1 | max}}"
+      msg: "min: {{numbres1 | min}}, max: {{numbres1 | max}}"      #min:1, max:10
+
+  - name: check ip address
+    vars:
+      myip: "356.168.1.1"              # this wrong ip because, highest is starting 255 only so you will get msg: false
+    ansible.builtin.debug:
+      msg: "{{ myip | ansible.utils.ipv4 }}"
