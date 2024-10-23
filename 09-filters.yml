@@ -45,3 +45,8 @@
       myip: "356.168.1.1"              # this wrong ip because, highest is starting 255 only so you will get msg: false
     ansible.builtin.debug:
       msg: "{{ myip | ansible.utils.ipv4 }}"
+
+
+  # so for this ip address execution you will get error--in that error mention install "netaddr"
+  #so, in python here we need to use "pip" for that version is 3.9
+  #finally need to give "pip3.9 install netaddr"
