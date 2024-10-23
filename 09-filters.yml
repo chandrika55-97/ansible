@@ -4,4 +4,12 @@
   tasks:
   - name: print the filter value
     ansible.builtin.debug:
-      msg: "hello {{course | default (good morning)}}"
+      msg: "hello {{course | default ('good morning')}}"
+
+  - name : print the upper case
+    ansible.builtin.debug:
+      msg: "hello {{course | default ('good morning') | upper}}"
+
+  - name : print the lower case
+    ansible.builtin.debug:
+      msg: "hello {{course | default ('good morning') | lower}}"
