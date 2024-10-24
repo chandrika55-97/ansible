@@ -13,7 +13,7 @@
 
   - name: install MySQL Server
     ansible.builtin.package:
-      name: mysqld
+      name: mysql-server
       state: present
 
   - name: start mysql server
