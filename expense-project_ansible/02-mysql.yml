@@ -3,7 +3,7 @@
   become: yes
   vars:
     mysql_root_password: ExpenseApp@1
-    login_host: mysql.daws81s.online
+    login_host: 172.31.17.194
   tasks:
   - name: ansible to install pymysql
     ansible.builtin.pip:
